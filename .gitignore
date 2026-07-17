@@ -1,0 +1,12 @@
+node_modules/
+dist/
+coverage/
+*.tsbuildinfo
+.claude/
+test-results/
+
+# demo artifacts (regenerated on every run; CI uploads them as a workflow artifact)
+demo/report.json
+demo/evidence/
+demo/evidence-live/
+demo/test-results/

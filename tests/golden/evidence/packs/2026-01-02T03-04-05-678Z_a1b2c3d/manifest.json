@@ -1,0 +1,101 @@
+{
+  "controls": {
+    "FX-001": {
+      "failed": 0,
+      "flaky": 0,
+      "passed": 2,
+      "skipped": 0,
+      "status": "passed",
+      "stylesDeclared": [
+        "boundary",
+        "negative"
+      ],
+      "stylesExercised": [
+        "boundary",
+        "negative"
+      ],
+      "tests": 2,
+      "title": "Fixture boundary control"
+    },
+    "FX-002": {
+      "failed": 1,
+      "flaky": 0,
+      "passed": 1,
+      "skipped": 0,
+      "status": "failed",
+      "stylesDeclared": [
+        "lifecycle"
+      ],
+      "stylesExercised": [
+        "lifecycle"
+      ],
+      "tests": 2,
+      "title": "Fixture lifecycle control"
+    },
+    "FX-003": {
+      "failed": 0,
+      "flaky": 0,
+      "passed": 0,
+      "skipped": 0,
+      "status": "gap",
+      "stylesDeclared": [],
+      "stylesExercised": [],
+      "tests": 0,
+      "title": "Fixture control with no tests"
+    }
+  },
+  "files": {
+    "EVIDENCE.md": "36851f904e444cc9555d225aaeb64ebbae57ae74259485b31f2588a3b69b676f",
+    "GAPS.md": "fcfcd5fdf31b47bbf4a7679716ded7fdbc0b1314885b19daf29a48cd4abb4cd9",
+    "controls/FX-001.md": "117b0b8e43fad35809fb63dc4466e5cd299986e959163756f9c1f6409f01af73",
+    "controls/FX-002.md": "5e9ee2647e3ff9720207c78b0f586958742cb87a5df416b9db84ad012ee76496",
+    "controls/FX-003.md": "f100e0bdb251cbe5ce2cc464d1b2a9d336adb7b385c4e415d99ef66296762e59",
+    "index.html": "e246382eb4783a0eca638f2757e15c76ddc4756422fb20e9231c85ab27a5a9a2",
+    "inputs/controls.yaml": "8f27a0d6dd64f0820b2b60fdf1291192d188163560ff16a6be7f4253024d065a",
+    "inputs/report.json": "bf37c6de4ba5bec6d9a5461370ea7b6837cff55cabe5136a539cced92b6c2bda"
+  },
+  "gaps": [
+    {
+      "controlId": "FX-003",
+      "kind": "no-passing-evidence"
+    },
+    {
+      "kind": "unknown-control-tag",
+      "tag": "@control:FX-999",
+      "tests": [
+        "tagged with a control that does not exist @control:FX-999 (tests/typo.spec.ts:3)"
+      ]
+    }
+  ],
+  "generator": {
+    "name": "test-evidence-packs",
+    "version": "0.1.0"
+  },
+  "git": {
+    "branch": "main",
+    "commit": "a1b2c3d4e5f60718293a4b5c6d7e8f9012345678",
+    "dirty": false,
+    "tag": "v0.1.0-demo"
+  },
+  "packId": "2026-01-02T03-04-05-678Z_a1b2c3d",
+  "run": {
+    "durationMs": 4322,
+    "playwrightVersion": "1.61.0",
+    "startTime": "2026-01-02T03:04:05.678Z",
+    "tests": {
+      "failed": 1,
+      "flaky": 0,
+      "passed": 4,
+      "skipped": 0,
+      "total": 5
+    }
+  },
+  "schemaVersion": 1,
+  "summary": {
+    "controls": 3,
+    "failed": 1,
+    "gapControls": 1,
+    "gaps": 2,
+    "passed": 1
+  }
+}

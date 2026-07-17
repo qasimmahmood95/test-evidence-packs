@@ -1,0 +1,131 @@
+{
+  "config": {
+    "rootDir": "/repo",
+    "version": "1.61.0"
+  },
+  "suites": [
+    {
+      "title": "fixture.spec.ts",
+      "file": "tests/fixture.spec.ts",
+      "specs": [
+        {
+          "title": "accepts at boundary @style:boundary",
+          "tags": ["compliance", "control:FX-001", "style:boundary"],
+          "file": "tests/fixture.spec.ts",
+          "line": 5,
+          "tests": [
+            {
+              "projectName": "unit",
+              "status": "expected",
+              "annotations": [{ "type": "boundary", "description": "T=100" }],
+              "results": [{ "status": "passed", "duration": 12.4, "retry": 0 }]
+            }
+          ]
+        },
+        {
+          "title": "rejects above boundary @style:negative",
+          "tags": ["compliance", "control:FX-001", "style:negative"],
+          "file": "tests/fixture.spec.ts",
+          "line": 14,
+          "tests": [
+            {
+              "projectName": "unit",
+              "status": "expected",
+              "annotations": [{ "type": "boundary", "description": "T+1=101" }],
+              "results": [
+                {
+                  "status": "passed",
+                  "duration": 8.6,
+                  "retry": 0,
+                  "attachments": [
+                    {
+                      "name": "trace",
+                      "contentType": "application/zip",
+                      "path": "/repo/test-results/rejects-above/trace.zip"
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "suites": [
+        {
+          "title": "lifecycle",
+          "specs": [
+            {
+              "title": "settles with a full audit trail @style:lifecycle",
+              "tags": ["compliance", "control:FX-002", "style:lifecycle"],
+              "file": "tests/fixture.spec.ts",
+              "line": 25,
+              "tests": [
+                {
+                  "projectName": "unit",
+                  "status": "expected",
+                  "annotations": [],
+                  "results": [{ "status": "passed", "duration": 21.0, "retry": 0 }]
+                }
+              ]
+            },
+            {
+              "title": "fails when settlement precedes approval",
+              "tags": ["compliance", "control:FX-002"],
+              "file": "tests/fixture.spec.ts",
+              "line": 33,
+              "tests": [
+                {
+                  "projectName": "unit",
+                  "status": "unexpected",
+                  "annotations": [],
+                  "results": [
+                    {
+                      "status": "failed",
+                      "duration": 40.5,
+                      "retry": 0,
+                      "errors": [{ "message": "Error: expected 'created' to be 'failed'\n    at fixture.spec.ts:35" }]
+                    },
+                    {
+                      "status": "failed",
+                      "duration": 38.2,
+                      "retry": 1,
+                      "errors": [{ "message": "\u001b[31mError: expected 'created' to be 'failed'\u001b[39m\n    at fixture.spec.ts:35" }]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "typo.spec.ts",
+      "file": "tests/typo.spec.ts",
+      "specs": [
+        {
+          "title": "tagged with a control that does not exist @control:FX-999",
+          "tags": ["control:FX-999"],
+          "file": "tests/typo.spec.ts",
+          "line": 3,
+          "tests": [
+            {
+              "projectName": "unit",
+              "status": "expected",
+              "annotations": [],
+              "results": [{ "status": "passed", "duration": 3.1, "retry": 0 }]
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "stats": {
+    "startTime": "2026-01-02T03:04:05.678Z",
+    "duration": 4321.9,
+    "expected": 4,
+    "skipped": 0,
+    "unexpected": 1,
+    "flaky": 0
+  }
+}

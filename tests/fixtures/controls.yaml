@@ -1,0 +1,29 @@
+version: 1
+
+meta:
+  system: fixture-system
+
+defaults:
+  control_tag_prefix: "@control:"
+  style_tag_prefix: "@style:"
+
+controls:
+  FX-001:
+    title: Fixture boundary control
+    description: Accepts at the boundary, rejects above it.
+    tags: ["@compliance", "@control:FX-001"]
+    evidence:
+      styles: [boundary, negative]
+      min_tests: 2
+    owner: fixture-team
+    references: ["POL-9 §1"]
+
+  FX-002:
+    title: Fixture lifecycle control
+    tags: ["@compliance", "@control:FX-002"]
+    evidence:
+      styles: [lifecycle]
+
+  FX-003:
+    title: Fixture control with no tests
+    tags: ["@control:FX-003"]

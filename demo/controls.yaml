@@ -1,0 +1,58 @@
+# Demo controls map for the bundled transfer-service test suite.
+# Control IDs are illustrative; the framing is generic internal-controls, not
+# a real certification scheme.
+version: 1
+
+meta:
+  system: demo-transfer-service
+  framework: generic internal-controls demo
+  owner: qa
+
+defaults:
+  control_tag_prefix: "@control:"
+  style_tag_prefix: "@style:"
+  match: all
+
+controls:
+  TR-001:
+    title: Transfer amount limit is enforced at the boundary
+    description: >
+      Transfers at and below the configured limit are accepted; transfers
+      above the limit and non-positive amounts are rejected.
+    tags: ["@compliance", "@control:TR-001"]
+    evidence:
+      styles: [boundary, negative]
+      min_tests: 3
+    owner: payments-qa
+    references:
+      - "POL-7 §3.2 (transfer limits)"
+
+  TR-002:
+    title: Transfer lifecycle leaves a complete audit trail
+    description: >
+      Every transfer records created → approved → settled (or failed) audit
+      events, in order.
+    tags: ["@compliance", "@control:TR-002"]
+    evidence:
+      styles: [lifecycle]
+      min_tests: 2
+
+  AC-003:
+    title: Segregation of duties for transfer approval
+    description: >
+      Only the approver role may approve a transfer, and settlement requires
+      a prior approval.
+    tags: ["@compliance", "@control:AC-003"]
+    evidence:
+      styles: [negative]
+      min_tests: 2
+    owner: platform-security
+
+  DB-004:
+    title: Backup restore drill is evidenced by tests
+    description: >
+      Deliberately has no tests in the demo suite, so it appears in GAPS.md —
+      this is what a control without evidence looks like in a pack.
+    tags: ["@compliance", "@control:DB-004"]
+    evidence:
+      min_tests: 1

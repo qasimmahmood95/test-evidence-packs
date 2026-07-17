@@ -1,0 +1,68 @@
+{
+  "name": "test-evidence-packs",
+  "version": "0.1.0",
+  "description": "Playwright reporter + CLI that turns test runs into audit-ready, tamper-evident evidence packs for regulated teams.",
+  "keywords": [
+    "playwright",
+    "testing",
+    "compliance",
+    "audit",
+    "evidence",
+    "qa",
+    "reporter"
+  ],
+  "author": "Qasim Mahmood",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qasimmahmood95/test-evidence-packs.git"
+  },
+  "type": "module",
+  "packageManager": "pnpm@11.9.0",
+  "engines": {
+    "node": ">=20"
+  },
+  "bin": {
+    "tep": "./dist/cli.js"
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": "./dist/index.js",
+    "./reporter": "./dist/reporter.js"
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc --noEmit",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "golden:update": "cross-env UPDATE_GOLDEN=1 vitest run tests/golden.test.ts",
+    "demo:test": "playwright test -c demo",
+    "demo:pack": "node dist/cli.js generate --report demo/report.json --controls demo/controls.yaml --out demo/evidence",
+    "demo": "pnpm build && pnpm demo:test && pnpm demo:pack"
+  },
+  "dependencies": {
+    "commander": "^13.1.0",
+    "yaml": "^2.6.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.50.0",
+    "@types/node": "^22.10.0",
+    "cross-env": "^7.0.3",
+    "eslint": "^9.17.0",
+    "typescript": "^5.7.0",
+    "typescript-eslint": "^8.19.0",
+    "vitest": "^3.0.0"
+  },
+  "peerDependencies": {
+    "@playwright/test": ">=1.42"
+  },
+  "peerDependenciesMeta": {
+    "@playwright/test": {
+      "optional": true
+    }
+  }
+}

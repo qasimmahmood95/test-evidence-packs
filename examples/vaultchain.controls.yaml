@@ -1,0 +1,52 @@
+# Controls map for the VaultChain demo bank's @compliance gate suite:
+# https://github.com/qasimmahmood95/vaultchain
+#
+# VaultChain's compliance tests carry the @compliance tag and identify the
+# rule under test with a Playwright annotation: { type: 'rule', description: '<ID>' }.
+# Boundary cases are annotated as { type: 'boundary', description: 'T=1000.00' } —
+# those descriptions surface in the generated evidence as "cases exercised".
+version: 1
+
+meta:
+  system: vaultchain
+  framework: demo bank compliance gate (educational)
+
+controls:
+  TR-16-BOUNDARY:
+    title: Travel Rule data exchange at and above the threshold
+    description: >
+      Transfers at/above the Travel Rule threshold must carry a complete
+      TravelRuleRecord; the rule is asserted at T-1, T, and T+1.
+    tags: ["@compliance"]
+    annotations:
+      - type: rule
+        value: TR-16-BOUNDARY
+    evidence:
+      styles: [boundary]
+      min_tests: 3
+
+  MC-DUAL-APPROVAL:
+    title: Dual approval with maker ≠ checker
+    tags: ["@compliance"]
+    annotations:
+      - type: rule
+        value: MC-DUAL-APPROVAL
+
+  SOD-HOLD-RESOLUTION:
+    title: Segregation of duties for hold resolution
+    description: Only a compliance officer may resolve a compliance hold.
+    tags: ["@compliance"]
+    annotations:
+      - type: rule
+        value: SOD-HOLD-RESOLUTION
+    evidence:
+      min_tests: 2
+
+  AUD-COMPLETENESS:
+    title: Audit-log completeness for state-changing actions
+    tags: ["@compliance"]
+    annotations:
+      - type: rule
+        value: AUD-COMPLETENESS
+    evidence:
+      min_tests: 3
